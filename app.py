@@ -32,10 +32,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.set_page_config(page_title="Support Card", page_icon="⚡", layout="centered")
+st.set_page_config(page_title="Partner Gateway", page_icon="⚡", layout="centered")
 
 # Page title
-st.markdown('<h1 style="text-align:center;">Zuper Assistant</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="text-align:center;">Partner Gateway</h1>', unsafe_allow_html=True)
 
 # Page subtitle 
 st.markdown(
@@ -237,7 +237,7 @@ if st.session_state.process_clicked:
     # Send to Zuper button (now has access to draft_response)
     if st.button("Send Response to Zuper"):
         uuid = "1e28fcbd-895c-42d2-a7fa-6ec74b48dedf"
-        url = f"https://stagingv2.zuperpro.com/api/jobs/{uuid}/note?notify_users=true"
+        url = f"https://stagingv2.zuperpro.com/api/jobs/1e28fcbd-895c-42d2-a7fa-6ec74b48dedf/note?notify_users=true"
         payload = {
             "note": {
                 "is_private": False,
