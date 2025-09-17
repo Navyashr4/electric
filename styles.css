@@ -6,6 +6,7 @@
         padding: 25px 30px;
         max-width: 550px;
         margin: auto;
+        margin-bottom: 10px;
         box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         font-family: 'Arial', sans-serif;
     }
