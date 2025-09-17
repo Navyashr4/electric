@@ -49,9 +49,10 @@ if process_clicked and user_input.strip():
     # Generate AI title
     result = generate_title_topic_group(user_input)
     title, topic, group = result["title"], result["topic"], result["group"]
-    # priority = 
+    title_just, topic_just, group_just = result["title_justification"], result["topic_justification"], result["group_justification"]
+    priority = "HIGH"
+    draft_text = "Here is the response"
 
-    draft_text = user_input  # Use the input as the draft text
     # Card component
     st.markdown(
     '<h4 style="text-align:center; font-weight:800; color:#E0E0E0; margin-top:80px;">Context-rich ticket. </h4>',
@@ -60,10 +61,10 @@ if process_clicked and user_input.strip():
     st.markdown(
         f"""
         <div class="card">
-            <div class="contextual-title">{ai_title}</div>
+            <div class="contextual-title">{title}</div>
             <div class="header-row">
-                <span class="pill">Pricing Adjustment (Confirmation)</span>
-                <span class="ticket-group-pill">Scoping Group</span>
+                <span class="pill">{topic}</span>
+                <span class="ticket-group-pill">{group}</span>
                 <span class="priority-pill">High priority</span>
             </div>
             <div class="installer-question"> 

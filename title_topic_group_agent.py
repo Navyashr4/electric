@@ -94,11 +94,18 @@ def generate_title_topic_group(user_message: str) -> dict:
         data = json.loads(content)
     except json.JSONDecodeError:
         # fallback if model doesn't return proper JSON
-        data = {"title": "Request", "topic": "Unknown", "group": "Unknown"}
+        data = {
+            "title": "Request", 
+            "topic": "Unknown", 
+            "group": "Unknown", 
+            "title_justification": "Unknown",
+            "topic_justification": "Unknown",
+            "group_justification": "Unknown", 
+            }
     
     return data
 
-user_message = "After review, Patrick said we can do this install. I am attaching a permit fee list. Unfortunetly in the last 2 months permits have skyrocketed. The fee for a Kirkland permit for an EV charger is now $300.00. Is there anyway we could add $165 to this total, to make up for the permit fee."
-result = generate_title_topic_group(user_message)
-title, topic, group = result["title"], result["topic"], result["group"]
-print("title:", title, "\ntopic", topic, "\ngroup", group)
+# user_message = "After review, Patrick said we can do this install. I am attaching a permit fee list. Unfortunetly in the last 2 months permits have skyrocketed. The fee for a Kirkland permit for an EV charger is now $300.00. Is there anyway we could add $165 to this total, to make up for the permit fee."
+# result = generate_title_topic_group(user_message)
+# title, topic, group = result["title"], result["topic"], result["group"]
+# print("title:", title, "\ntopic", topic, "\ngroup", group)
