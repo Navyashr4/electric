@@ -1,5 +1,3 @@
-# from openai import OpenAI
-
 import streamlit as st
 from openai import OpenAI
 
@@ -21,5 +19,3 @@ def generate_title(user_message: str) -> str:
     # Access the message content
     title = response.choices[0].message.content.strip()
     return title if title else "Request"
-
-print(generate_title("HI i am an lectr"))

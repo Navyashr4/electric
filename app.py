@@ -1,5 +1,5 @@
 import streamlit as st
-from prompt_1 import generate_title
+from title_topic_group_agent import generate_title_topic_group
 
 
 st.markdown(
@@ -47,8 +47,9 @@ process_clicked = st.button("Process")
 # Only render the card if Process is clicked and there is input
 if process_clicked and user_input.strip():
     # Generate AI title
-    ai_title = generate_title(user_input)
-
+    result = generate_title_topic_group(user_input)
+    title, topic, group = result["title"], result["topic"], result["group"]
+    # priority = 
 
     draft_text = user_input  # Use the input as the draft text
     # Card component
