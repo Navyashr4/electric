@@ -78,9 +78,18 @@ if process_clicked and user_input.strip():
         <div class="card">
             <div class="contextual-title">{title}</div>
             <div class="header-row">
-                <span class="pill">{topic}</span>
-                <span class="ticket-group-pill">{group}</span>
-                <span class="priority-pill" style="background-color: {color}">{priority}</span>
+                <span class="pill tooltip">
+                  {topic}
+                  <span class="tooltip-text">{topic_just}</span>
+                </span>
+                <span class="ticket-group-pill tooltip">
+                  {group} Group
+                  <span class="tooltip-text">{group_just}</span>
+                </span>
+                <span class="priority-pill tooltip" style="background-color: {color}">
+                  {priority} Priority
+                  <span class="tooltip-text">{priority_justification}</span>
+                </span>
             </div>
             <div class="installer-question"> 
               <div class="ticket-info">Installer Question:</div>
