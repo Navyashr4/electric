@@ -1,0 +1,154 @@
+
+    .card {
+        background-color: #f9f9f9;
+        color: #111;
+        border-radius: 15px;
+        padding: 25px 30px;
+        max-width: 550px;
+        margin: auto;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        font-family: 'Arial', sans-serif;
+    }
+    .contextual-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+    .red-circle {
+        width: 15px;
+        height: 15px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        position: relative;
+        cursor: pointer;
+    }
+    .red-circle:hover::after {
+        content: "High because fire";
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 12px;
+        z-index: 100;
+        opacity: 1;
+    }
+    .ticket-info {
+        text-align: left;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .draft-response {
+        font-size: 17px;
+        background-color: #D6E4F0;
+        color: #0A2A66;
+        padding: 12px 40px 12px 12px; /* space for icon */
+        border-radius: 10px;
+        position: relative;
+        text-align: left;
+    }
+    .installer-question {
+        font-size: 17px;
+        background-color: #E0E0E0;
+        color: #1A1A1A;
+        padding: 12px 40px 12px 12px; /* space for icon */
+        border-radius: 10px;
+        position: relative;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+    .draft-footer {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .draft-footer-icon {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .draft-footer-icon:hover {
+        opacity: 1;
+    }
+
+    .pill {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background-color: #4A90E2; /* purple background */
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    } 
+
+    .ticket-group-pill {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background-color: #7B68EE; /* purple background */
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    } 
+
+
+    .priority-pill {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        background-color: #DC3545; /* purple background */
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    } 
+
+    /* Example SVG icons as background images */
+    .copy-icon { background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,21H9a2,2 0 0 1-2-2V7h2v12h10v2M17,3H5a2,2 0 0 0-2,2v12a2,2 0 0 0 2,2h12a2,2 0 0 0 2-2V5a2,2 0 0 0-2-2M17,17H5V5h12v12Z"/></svg>'); }
+    
+    .like-icon { background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'); }
+    
+    .dislike-icon { background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.65l1.45 1.32C18.6 8.64 22 11.72 22 15.5 22 18.58 19.58 21 16.5 21c-1.74 0-3.41-.81-4.5-2.09C10.91 20.19 9.24 21 7.5 21 4.42 21 2 18.58 2 15.5c0-3.78 3.4-6.86 8.55-11.54L12 2.65z"/></svg>'); }
+    
+    .upload-icon { background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-14l5 5h-3v4h-4v-4H7l5-5z"/></svg>'); }
+    
+    .regenerate-icon { background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 .62-.11 1.21-.31 1.77l1.46 1.46C19.69 13.86 20 12.95 20 12c0-4.42-3.58-8-8-8z"/></svg>'); }
+
+    .draft-footer-icon {
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    /* Streamlit Process button styling */
+    div.stButton > button:first-child {
+        background-color: #28a745;  /* Green color */
+        color: white;               /* White text */
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 6px 20px;
+    }
+
+    div.stButton > button:first-child:hover {
+        background-color: #218838;  /* Darker green on hover */
+        color: white;
+    }
+
