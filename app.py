@@ -1,6 +1,7 @@
 import streamlit as st
 from title_topic_group_agent import generate_title_topic_group
 from priority_agent import generate_priority
+from draft_response_agent import generate_response
 
 
 st.markdown(
@@ -32,11 +33,10 @@ st.markdown(
 # Text input box
 user_input = st.text_area(
     label="",
-    height=100,
+    height=200,
     width=500,
     placeholder="Type your message..."
 )
-
 
 # Read CSS
 with open("styles.css") as f:
@@ -66,7 +66,7 @@ if process_clicked and user_input.strip():
     # Get color based on priority
     color = priority_colors.get(priority, "#718096")  # default gray
 
-    draft_text = "Here is the response"
+    draft_response = generate_response(user_input)
 
     # Card component
     st.markdown(
@@ -88,7 +88,7 @@ if process_clicked and user_input.strip():
             </div>
             <div class="draft-response">
               <div class="ticket-info">Draft Response:</div>
-              {draft_text}
+              {draft_response}
               <div class="draft-footer">
                 <div class="draft-footer-icon copy-icon" title="Copy"></div>
                 <div class="draft-footer-icon like-icon" title="Like"></div>
