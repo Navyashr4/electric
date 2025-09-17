@@ -236,7 +236,8 @@ if st.session_state.process_clicked:
 
     # Send to Zuper button (now has access to draft_response)
     if st.button("Send Response to Zuper"):
-        url = f"https://stagingv2.zuperpro.com/api/jobs/9c636548-5635-4035-b0a5-030867d5dd6e/note?notify_users=true"
+        uuid = "1e28fcbd-895c-42d2-a7fa-6ec74b48dedf"
+        url = f"https://stagingv2.zuperpro.com/api/jobs/{uuid}/note?notify_users=true"
         payload = {
             "note": {
                 "is_private": False,
