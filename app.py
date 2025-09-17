@@ -1,5 +1,6 @@
 import streamlit as st
 from title_topic_group_agent import generate_title_topic_group
+from priority_agent import generate_priority
 
 
 st.markdown(
@@ -41,6 +42,15 @@ user_input = st.text_area(
 with open("styles.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+
+# Define colors for each priority
+priority_colors = {
+    "Urgent": "#E53E3E",   # red
+    "High": "#DD6B20",     # orange
+    "Medium": "#D69E2E",   # yellow
+    "Low": "#38A169"       # green
+}
+
 # Process button
 process_clicked = st.button("Process")
 
@@ -50,7 +60,12 @@ if process_clicked and user_input.strip():
     result = generate_title_topic_group(user_input)
     title, topic, group = result["title"], result["topic"], result["group"]
     title_just, topic_just, group_just = result["title_justification"], result["topic_justification"], result["group_justification"]
-    priority = "HIGH"
+    
+    priority_result = generate_priority(user_input)
+    priority, priority_justification = priority_result["priority"], priority_result["justification"]
+    # Get color based on priority
+    color = priority_colors.get(priority, "#718096")  # default gray
+
     draft_text = "Here is the response"
 
     # Card component
@@ -65,7 +80,7 @@ if process_clicked and user_input.strip():
             <div class="header-row">
                 <span class="pill">{topic}</span>
                 <span class="ticket-group-pill">{group}</span>
-                <span class="priority-pill">High priority</span>
+                <span class="priority-pill" style="background-color: {color}">{priority}</span>
             </div>
             <div class="installer-question"> 
               <div class="ticket-info">Installer Question:</div>
