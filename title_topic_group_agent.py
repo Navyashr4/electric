@@ -88,7 +88,6 @@ def generate_title_topic_group(user_message: str) -> dict:
     )
 
     content = response.choices[0].message.content.strip()
-    print(content)
     
     try:
         data = json.loads(content)
