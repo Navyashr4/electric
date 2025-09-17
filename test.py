@@ -3,27 +3,37 @@ import requests
 
 st.title("Post Note to Zuper Job")
 
-url = "https://stagingv2.zuperpro.com/api/jobs/9c636548-5635-4035-b0a5-030867d5dd6e/note?notify_users=true"
+# Inputs
+job_uid = st.text_input("Job UID", "9c636548-5635-4035-b0a5-030867d5dd6e")
+note_message = st.text_area("Note Message", "<p>ggg</p>")
 
-payload = {
-    "attachments": [],
-    "is_private": False,
-    "note": "<p>ggg</p>",
-    "note_type": "TEXT",
-    "user_mentions": []
-}
+# Load API key from Streamlit secrets
+api_key = st.secrets["ZUPER_API_KEY"]
 
-# ⚠️ Replace with your real token
+# Headers for API key auth
 headers = {
+    "x-api-key": api_key,
     "Content-Type": "application/json"
 }
 
+# Button to post note
 if st.button("Send Note"):
-    response = requests.post(url, json=payload, headers=headers)
-    st.json(response.json())
-    if response.status_code == 200:
-        st.success("✅ Note posted successfully!")
-        st.json(response.json())
-    else:
-        st.error(f"❌ Failed with status code {response.status_code}")
-        st.text(response.text)
+    url = f"https://stagingv2.zuperpro.com/api/jobs/{job_uid}/note?notify_users=true"
+    payload = {
+        "note": {
+            "is_private": False,
+            "note": note_message,
+            "note_type": "TEXT"
+        }
+    }
+    try:
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
+        if response.status_code == 200:
+            st.success("✅ Note posted successfully!")
+            st.json(response.json())
+        else:
+            st.error(f"❌ Failed with status code {response.status_code}")
+            st.text(response.text)
+    except requests.exceptions.RequestException as e:
+        st.error("❌ Request failed")
+        st.text(str(e))
